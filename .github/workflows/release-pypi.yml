@@ -1,7 +1,9 @@
 name: Publish release to PyPi
 
 on:
-  push
+  push:
+    tags:
+      - "v[0-9]+_[0-9]+_[0-9]+"
 
 jobs:
   pypi-publish:
