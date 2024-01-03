@@ -1,0 +1,110 @@
+# ------
+# poetry
+# ------
+
+[tool.poetry]
+name = "starlette-sessions"
+version = "0.1.0"
+description = "Adds server-side session support to your Starlette application"
+authors = ["Jesse McLaughlin <nzjess@gmail.com>"]
+readme = "README.md"
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[tool.poetry.dependencies]
+python = "~3.8"
+starlette = "^0.27.0"
+redis = { version = ">=4", optional = true }
+itsdangerous = { version = "^2", optional = true }
+
+[tool.poetry.extras]
+redis = ["redis"]
+securecookie = ["itsdangerous"]
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7"
+mypy = "^1"
+ruff = "^0.0.277"
+uvicorn = "^0.25.0"
+black = "^23"
+isort = "^5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# ----
+# isort
+# ----
+
+[tool.isort]
+py_version = 38
+profile = "black"
+
+known_localfolder = "src,tests"
+sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
+
+# ----
+# black
+# ----
+
+[tool.black]
+line-length = 120
+
+# ----
+# mypy
+# ----
+
+[tool.mypy]
+python_version = "3.8"
+strict = true
+implicit_reexport = true
+disallow_untyped_defs = true
+
+# ------
+# ruff
+# ------
+
+[tool.ruff]
+select = ["ALL"]  # https://beta.ruff.rs/docs/rules/
+ignore = [
+    "ANN401",   # Any types are useful for this framework
+    "FA100",    # Future rewritable type annotations
+    "PLR0913",  # Too many arguments in function call
+    "D",        # Docstrings
+    "ANN101",   # Missing type annotation for `self` in method
+    "ANN102",   # Missing type annotation for `cls` in classmethod
+    "FBT001",   # Boolean positional arg in function definition
+    "FBT002",   # Boolean default value in function definition
+]
+fixable = []
+line-length = 120
+target-version = "py38"
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pytype",
+    ".ruff_cache",
+    ".venv",
+    "build",
+    "dist",
+    "venv",
+]
+
+
+# ------
+# pytest
+# ------
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
