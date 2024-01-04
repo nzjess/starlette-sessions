@@ -4,7 +4,7 @@
 
 [tool.poetry]
 name = "starlette-sessions"
-version = "0.1.0"
+version = "0.2.0"
 description = "Adds server-side session support to your Starlette application"
 authors = ["Jesse McLaughlin <nzjess@gmail.com>"]
 readme = "README.md"
@@ -14,7 +14,7 @@ name = "PyPI"
 priority = "primary"
 
 [tool.poetry.dependencies]
-python = "~3.8"
+python = ">=3.8"
 starlette = "^0.27.0"
 redis = { version = ">=4", optional = true }
 itsdangerous = { version = "^2", optional = true }

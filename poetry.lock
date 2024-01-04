@@ -428,5 +428,5 @@ securecookie = ["itsdangerous"]
 
 [metadata]
 lock-version = "2.0"
-python-versions = "~3.8"
-content-hash = "f311f92280d77074fd0622091e3586d57b0a8d1d5f0c25b6ea0e33c10840b294"
+python-versions = ">=3.8"
+content-hash = "a46e7d6c323c42432d541e1730d7e11344f10b90d49b1b791507eab0be7e79f8"
